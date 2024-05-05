@@ -16,11 +16,13 @@ Directory structure of the web app is as follows:
 ```
 
 ## Instructions for initializing web app:
-
-- Install Node JS, MongoDB in the machine.
+- Install Node JS v20.12.1
+- Install packages in backend folder using npm i --legacy-peer-deps
+- Install packages in frontEnd folder using npm i or npm -- force
+- Install MongoDB in the machine.
 - Start MongoDB server: `sudo service mongod start`
 - Move inside backend directory: `cd backend`
-- Install dependencies in backend directory: `npm install`
+- Install dependencies in backend directory: `n.pm install`
 - Start express server: `npm start`
 - Backend server will start on port 4444.
 - Now go inside frontend directory: `cd ..\frontend`
