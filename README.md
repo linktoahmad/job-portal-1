@@ -19,6 +19,7 @@ Directory structure of the web app is as follows:
 - Install Node JS v20.12.1
 - Install packages in backend folder using npm i --legacy-peer-deps
 - Install packages in frontEnd folder using npm i or npm -- force
+- if frint end gives "error:0308010C:digital envelope routines::unsupported" use command "export NODE_OPTIONS=--openssl-legacy-provider" then run app again
 - Install MongoDB in the machine.
 - Start MongoDB server: `sudo service mongod start`
 - Move inside backend directory: `cd backend`
