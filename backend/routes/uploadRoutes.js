@@ -3,6 +3,7 @@ const multer = require('multer');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const { promisify } = require('util');
+const { Readable } = require('stream');
 
 const pipeline = promisify(require('stream').pipeline);
 
@@ -19,7 +20,8 @@ router.post('/resume', upload.single('file'), (req, res) => {
   } else {
     const filename = `${uuidv4()}${file.mimetype.replace('application/', '.')}`;
     pipeline(
-      `${file.buffer}`,
+      // ensure readable formate
+      Readable.from([file.buffer]),
       fs.createWriteStream(`${__dirname}/../public/resume/${filename}`)
     )
       .then(() => {
@@ -45,7 +47,8 @@ router.post('/profile', upload.single('file'), (req, res) => {
   } else {
     const filename = `${uuidv4()}${file.mimetype.replace('image/', '.')}`;
     pipeline(
-      `${file.buffer}`,
+     // ensure readable formate
+     Readable.from([file.buffer]),
       fs.createWriteStream(`${__dirname}/../public/profile/${filename}`)
     )
       .then(() => {
